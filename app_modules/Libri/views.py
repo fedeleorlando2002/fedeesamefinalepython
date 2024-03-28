@@ -25,18 +25,19 @@ class LibriApi(MethodView):
         return controller.create(nuovo_libro)
     
     @libri_blp.route("/<string:_id>")
-    @libri_blp.response(HTTPStatus.OK, LibriSchema)
-    def get_single(self, _id):
-        controller = LibriController()  # Creazione di un'istanza di LibriController
-        return controller.get(_id)
-    
-    @libri_blp.arguments(LibriSchema)
-    @libri_blp.response(HTTPStatus.OK, LibriSchema)
-    def put(self, data,_id):
-        controller = LibriController()  # Creazione di un'istanza di LibriController
-        return controller.update(_id, data)
+    class LibriApi(MethodView):
+        @libri_blp.response(HTTPStatus.OK, LibriSchema)
+        def get_single(self, _id):
+            controller = LibriController()  # Creazione di un'istanza di LibriController
+            return controller.get(_id)
+        
+        @libri_blp.arguments(LibriSchema)
+        @libri_blp.response(HTTPStatus.OK, LibriSchema)
+        def put(self, data,_id):
+            controller = LibriController()  # Creazione di un'istanza di LibriController
+            return controller.update(_id, data)
 
-    @libri_blp.response(HTTPStatus.NO_CONTENT)
-    def delete(self, _id):
-        controller = LibriController()  # Creazione di un'istanza di LibriController
-        controller.delete(_id)
+        @libri_blp.response(HTTPStatus.NO_CONTENT)
+        def delete(self, _id):
+            controller = LibriController()  # Creazione di un'istanza di LibriController
+            controller.delete(_id)
