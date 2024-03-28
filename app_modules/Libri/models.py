@@ -21,6 +21,5 @@ class Libri():
             "autore": self.autore,
             "prezzo": self.prezzo,
             "categoria": self.categoria,
-            "_id": self._id  # Utilizza direttamente l'ID senza convertirlo in stringa
         }
 

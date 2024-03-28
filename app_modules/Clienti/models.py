@@ -23,5 +23,4 @@ class Clienti():
             "eta": self.eta,
             "email": self.email,
             "telefono": self.telefono,
-            "_id": self._id  # Utilizza direttamente l'ID senza convertirlo in stringa
         }

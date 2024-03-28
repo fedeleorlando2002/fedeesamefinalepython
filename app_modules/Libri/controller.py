@@ -1,5 +1,5 @@
 from flask import current_app
-from pymongo import MongoClient
+from pymongo import ReturnDocument
 from .models import Libri
 import sys
 from bson import ObjectId
@@ -33,8 +33,8 @@ class LibriController():
         document = mongo.db[collection_name].find_one_and_update(
             {"_id": ObjectId(request_id)},
             {"$set": request.as_dict()},
-            upsert=False,
         )
+        return document
 
  
     def delete(self, request_id: str):
