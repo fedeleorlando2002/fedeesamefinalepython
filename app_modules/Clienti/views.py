@@ -27,7 +27,7 @@ class ClientiApi(MethodView):
     @clienti_blp.route("/<string:_id>")
     class ClientiApi(MethodView):
         @clienti_blp.response(HTTPStatus.OK, ClientiSchema)
-        def get_single(self, _id):
+        def get(self, _id):
             controller = ClientiController()  # Creazione di un'istanza di LibriController
             return controller.get(_id)
         
