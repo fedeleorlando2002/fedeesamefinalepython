@@ -1,6 +1,5 @@
 from bson import ObjectId
 from dataclasses import field
-from typing import Optional
 
 class Libri():
     titolo: str = field(metadata=dict(description="Titolo"))

@@ -1,5 +1,4 @@
 from flask import current_app
-from pymongo import ReturnDocument
 from .models import Libri
 import sys
 from bson import ObjectId
@@ -9,10 +8,9 @@ from .models import Libri
 
 class LibriController():
     label = "libro"
-    model = Libri()
+    model = Libri
 
     def get_all(self, request_args={}):
-        sort = 1 if request_args.get('sort', -1) == 'asc' else -1
         limit = int(request_args.get('limit', sys.maxsize)) if request_args.get('limit') else sys.maxsize
         model_data = list(mongo.db['libri'].find().limit(limit))  # Accesso alla collezione 'libri' nel database 'libreria'
         return model_data
@@ -42,14 +40,11 @@ class LibriController():
                 {"_id": ObjectId(request_id)},
                 {"$set": request.as_dict()},
             )
-            # return document
-        else:
-            return None
+            return document
+
  
     def delete(self, request_id: str):
         if self.exists(request_id):
             collection_name = self.model.collection_name()
             mongo.db[collection_name].delete_one({"_id": ObjectId(request_id)})
-            return True
-        else:
-            return False
+            return None
