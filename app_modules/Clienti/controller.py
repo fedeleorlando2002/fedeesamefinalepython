@@ -45,6 +45,7 @@
 
 
 from flask import current_app
+from pymongo import ReturnDocument
 # from pymongo import MongoClient
 from .models import Clienti
 import sys
@@ -84,6 +85,7 @@ class ClientiController():
                 {"_id": ObjectId(request_id)},
                 {"$set": request.as_dict()},
                 upsert=False,
+                return_document=ReturnDocument.AFTER
             )
             return document
 
