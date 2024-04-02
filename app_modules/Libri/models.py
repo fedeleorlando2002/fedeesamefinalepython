@@ -1,3 +1,4 @@
+from typing import Optional
 from bson import ObjectId
 from dataclasses import field
 
@@ -7,9 +8,9 @@ class Libri():
     prezzo: int = field(metadata=dict(description="Prezzo"))
     categoria: str = field(metadata=dict(description="Categoria"))
 
-    _id: ObjectId = field(default=None, metadata=dict(
-        dump_only=True, description="ID univoco"))
-    
+    _id: Optional[ObjectId] = field(
+        default=None, metadata=dict(dump_only=True, description="ID univoco"))
+
     @classmethod
     def collection_name(cls):
         return 'libri'  # Modifica questo valore con il nome effettivo della tua collezione in MongoDB

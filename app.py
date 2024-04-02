@@ -1,7 +1,9 @@
+from marshmallow import fields
+from bson import ObjectId
 from flask import Flask
 from flask_pymongo import PyMongo
 from flask_smorest import Api
-from flask_marshmallow import Marshmallow
+from flask_marshmallow import Marshmallow, Schema
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/libreria'  # Imposta il nome del database come 'libreria'
@@ -14,6 +16,7 @@ app.config['OPENAPI_SWAGGER_UI_URL'] = 'https://cdn.jsdelivr.net/npm/swagger-ui-
 
 with app.app_context():
     app.config['DEFAULT_MONGO_INSTANCE'] = PyMongo(app)
+    Schema.TYPE_MAPPING[ObjectId] = fields.String
     marshmallow = Marshmallow(app)
     api = Api(app)
 

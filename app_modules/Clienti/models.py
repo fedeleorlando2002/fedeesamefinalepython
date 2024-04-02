@@ -1,3 +1,4 @@
+from typing import Optional
 from bson import ObjectId
 from dataclasses import field
 
@@ -8,7 +9,7 @@ class Clienti():
     email: str = field(metadata=dict(description="Email"))
     telefono: str = field(metadata=dict(description="Telefono"))
 
-    _id: ObjectId = field(default=None, metadata=dict(
+    _id: Optional[ObjectId] = field(default=None, metadata=dict(
         dump_only=True, description="ID univoco"))
     
     @classmethod
