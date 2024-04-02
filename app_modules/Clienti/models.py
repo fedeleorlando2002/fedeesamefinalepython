@@ -23,3 +23,14 @@ class Clienti():
             "email": self.email,
             "telefono": self.telefono,
         }
+    
+    # def as_dict(self):
+    #     id_value = str(self._id) if self._id is not None else None
+    #     return {
+    #         "_id": id_value,
+    #         "nome": self.nome,
+    #         "cognome": self.cognome,
+    #         "eta": self.eta,
+    #         "email": self.email,
+    #         "telefono": self.telefono,
+    #     }
