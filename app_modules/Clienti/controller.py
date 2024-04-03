@@ -1,6 +1,5 @@
 from flask import current_app
 from pymongo import ReturnDocument
-# from pymongo import MongoClient
 from .models import Clienti
 import sys
 from bson import ObjectId

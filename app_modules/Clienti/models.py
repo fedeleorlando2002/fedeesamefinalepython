@@ -1,6 +1,8 @@
+from datetime import date
 from typing import Optional
 from bson import ObjectId
 from dataclasses import field
+
 
 class Clienti():
     nome: str = field(metadata=dict(description="Nome"))
@@ -15,7 +17,7 @@ class Clienti():
     @classmethod
     def collection_name(cls):
         return 'clienti'  # Modifica questo valore con il nome effettivo della tua collezione in MongoDB
-    
+
     def as_dict(self):
         return {
             "nome": self.nome,
@@ -25,13 +27,5 @@ class Clienti():
             "telefono": self.telefono,
         }
     
-    # def as_dict(self):
-    #     id_value = str(self._id) if self._id is not None else None
-    #     return {
-    #         "_id": id_value,
-    #         "nome": self.nome,
-    #         "cognome": self.cognome,
-    #         "eta": self.eta,
-    #         "email": self.email,
-    #         "telefono": self.telefono,
-    #     }
+
+      # eta: int = field(metadata=dict(description="Eta"))
