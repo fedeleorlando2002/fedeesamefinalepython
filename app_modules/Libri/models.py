@@ -5,7 +5,7 @@ from dataclasses import field
 class Libri():
     titolo: str = field(metadata=dict(description="Titolo"))
     autore: str = field(metadata=dict(description="Autore"))
-    prezzo: int = field(metadata=dict(description="Prezzo"))
+    prezzo: float = field(metadata=dict(description="Prezzo"))
     categoria: str = field(metadata=dict(description="Categoria"))
 
     _id: Optional[ObjectId] = field(

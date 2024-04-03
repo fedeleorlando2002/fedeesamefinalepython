@@ -1,8 +1,6 @@
-from datetime import date
 from typing import Optional
 from bson import ObjectId
 from dataclasses import field
-
 
 class Clienti():
     nome: str = field(metadata=dict(description="Nome"))
@@ -27,5 +25,5 @@ class Clienti():
             "telefono": self.telefono,
         }
     
-
+    
       # eta: int = field(metadata=dict(description="Eta"))
