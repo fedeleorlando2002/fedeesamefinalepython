@@ -7,7 +7,7 @@ class Clienti():
     nome: str = field(metadata=dict(description="Nome"))
     cognome: str = field(metadata=dict(description="Autore"))
     eta: str = field(metadata=dict(description="Data di nascita")) 
-    email: str = field(metadata=dict(description="Email"))
+    email: str = field(metadata=dict(description="Email (deve contenere '@')"))
     telefono: str = field(metadata=dict(description="Telefono"))
 
     _id: Optional[ObjectId] = field(default=None, metadata=dict(
@@ -26,5 +26,6 @@ class Clienti():
             "telefono": self.telefono,
         }
     
-    
-      # eta: int = field(metadata=dict(description="Eta"))
+    def __post_init__(self):
+        if self.email and '@' not in self.email:
+            raise ValueError("L'indirizzo email deve contenere '@'")
