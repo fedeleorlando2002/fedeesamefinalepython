@@ -29,10 +29,10 @@ class Clienti():
     def __post_init__(self):
         if self.email and '@' not in self.email:
             raise ValueError("L'indirizzo email deve contenere '@'")
-        
-    def __post_init__(self):
+    
         if self.telefono and not self.is_valid_phone():
             raise ValueError("Il numero di telefono deve contenere al massimo 10 cifre e non contenere lettere")
 
     def is_valid_phone(self):
         return self.telefono.isdigit() and len(self.telefono) <= 10
+    
