@@ -1,3 +1,4 @@
+from datetime import date
 from typing import Optional
 from bson import ObjectId
 from dataclasses import field
@@ -5,7 +6,7 @@ from dataclasses import field
 class Clienti():
     nome: str = field(metadata=dict(description="Nome"))
     cognome: str = field(metadata=dict(description="Autore"))
-    eta: int = field(metadata=dict(description="Eta"))
+    eta: str = field(metadata=dict(description="Data di nascita")) 
     email: str = field(metadata=dict(description="Email"))
     telefono: str = field(metadata=dict(description="Telefono"))
 
