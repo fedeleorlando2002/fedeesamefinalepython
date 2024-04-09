@@ -34,5 +34,5 @@ class Clienti():
             raise ValueError("Il numero di telefono deve contenere al massimo 10 cifre e non contenere lettere")
 
     def is_valid_phone(self):
-        return self.telefono.isdigit() and len(self.telefono) <= 10
+        return self.telefono.isdigit() and len(self.telefono) == 10
     
